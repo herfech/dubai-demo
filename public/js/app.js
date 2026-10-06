@@ -15,8 +15,8 @@
     regalo: '<path d="M3 8h18v4H3z"/><path d="M5 12v9h14v-9M12 8v13"/><path d="M12 8C9 8 7.5 6 8.5 4.5S12 4.5 12 8zM12 8c3 0 4.5-2 3.5-3.5S12 4.5 12 8z"/>',
     rombo: '<path d="M12 3l8 9-8 9-8-9z"/>'
   };
-  const ICONO_SLUG = { cocteles: 'coctel', botellas: 'botella', licores: 'botella', bebidas: 'vaso', cachimbas: 'cachimba', comida: 'comida',
-                       promocion: 'promocion', promociones: 'promocion', oferta: 'promocion', ofertas: 'promocion', combo: 'promocion', combos: 'promocion' };
+  const ICONO_SLUG = { cocteles: 'coctel', botellas: 'botella', licores: 'botella', bebidas: 'vaso', cachimbas: 'cachimba', comida: 'comida'};
+                       //promocion: 'promocion', promociones: 'promocion', oferta: 'promocion', ofertas: 'promocion', combo: 'promocion', combos: 'promocion' };
   const ARTE_ICONO = { coctel: 'cocteles', botella: 'botellas', vaso: 'bebidas', cachimba: 'cachimbas', comida: 'comida', promocion: 'promocion', estrella: 'promocion', regalo: 'promocion', rombo: 'base' };
   const iconoDe = (c) => (c.icono && ICONOS[c.icono] ? c.icono : ICONO_SLUG[c.slug]) || 'rombo';
   let productos = [], categorias = [], carrito = {}, sel = null;
