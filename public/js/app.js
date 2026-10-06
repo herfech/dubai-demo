@@ -10,7 +10,7 @@
     vaso: '<path d="M6 4h12l-1.5 16h-9z"/><path d="M7 9h10M14 4l2-2"/>',
     cachimba: '<path d="M12 2c1.6 1.6-1.6 2.4 0 4"/><path d="M10 8h4l1 3h-6z"/><path d="M9 11c-3 2-3 8 3 8s6-6 3-8"/><path d="M12 19v2M8 21h8"/>',
     comida: '<path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10"/><path d="M17 3c-2 1-3 4-3 7h3v11"/>',
-    promocion: '<path d="M3 3h8l10 10-8 8L3 11z"/><circle cx="7.5" cy="7.5" r="1.3"/>',
+    //promocion: '<path d="M3 3h8l10 10-8 8L3 11z"/><circle cx="7.5" cy="7.5" r="1.3"/>',
     estrella: '<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
     regalo: '<path d="M3 8h18v4H3z"/><path d="M5 12v9h14v-9M12 8v13"/><path d="M12 8C9 8 7.5 6 8.5 4.5S12 4.5 12 8zM12 8c3 0 4.5-2 3.5-3.5S12 4.5 12 8z"/>',
     rombo: '<path d="M12 3l8 9-8 9-8-9z"/>'
