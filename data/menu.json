@@ -1,0 +1,657 @@
+{
+  "moneda": "XAF",
+  "categorias": [
+    {
+      "id": 21,
+      "nombre": "Promoción",
+      "slug": "promocion",
+      "imagen": null,
+      "icono": null,
+      "padre": null
+    },
+    {
+      "id": 1,
+      "nombre": "Cócteles",
+      "slug": "cocteles",
+      "imagen": null,
+      "icono": null,
+      "padre": null
+    },
+    {
+      "id": 6,
+      "nombre": "Licores",
+      "slug": "licores",
+      "imagen": null,
+      "icono": null,
+      "padre": "botellas"
+    },
+    {
+      "id": 9,
+      "nombre": "Cerveza",
+      "slug": "cerveza",
+      "imagen": null,
+      "icono": null,
+      "padre": "bebidas"
+    },
+    {
+      "id": 11,
+      "nombre": "Platos",
+      "slug": "platos",
+      "imagen": null,
+      "icono": null,
+      "padre": "comida"
+    },
+    {
+      "id": 2,
+      "nombre": "Botellas",
+      "slug": "botellas",
+      "imagen": null,
+      "icono": null,
+      "padre": null
+    },
+    {
+      "id": 7,
+      "nombre": "Champagne",
+      "slug": "champagne",
+      "imagen": null,
+      "icono": null,
+      "padre": "botellas"
+    },
+    {
+      "id": 10,
+      "nombre": "Refrescos",
+      "slug": "refrescos",
+      "imagen": null,
+      "icono": null,
+      "padre": "bebidas"
+    },
+    {
+      "id": 12,
+      "nombre": "Pizza",
+      "slug": "pizza",
+      "imagen": null,
+      "icono": null,
+      "padre": "comida"
+    },
+    {
+      "id": 3,
+      "nombre": "Bebidas",
+      "slug": "bebidas",
+      "imagen": null,
+      "icono": null,
+      "padre": null
+    },
+    {
+      "id": 8,
+      "nombre": "Vinos",
+      "slug": "vinos",
+      "imagen": null,
+      "icono": null,
+      "padre": "botellas"
+    },
+    {
+      "id": 13,
+      "nombre": "Desayuno",
+      "slug": "desayuno",
+      "imagen": null,
+      "icono": null,
+      "padre": "comida"
+    },
+    {
+      "id": 4,
+      "nombre": "Cachimbas",
+      "slug": "cachimbas",
+      "imagen": null,
+      "icono": null,
+      "padre": null
+    },
+    {
+      "id": 14,
+      "nombre": "Ensalada",
+      "slug": "ensalada",
+      "imagen": null,
+      "icono": null,
+      "padre": "comida"
+    },
+    {
+      "id": 5,
+      "nombre": "Comida",
+      "slug": "comida",
+      "imagen": null,
+      "icono": null,
+      "padre": null
+    },
+    {
+      "id": 15,
+      "nombre": "Bocadillo",
+      "slug": "bocadillo",
+      "imagen": null,
+      "icono": null,
+      "padre": "comida"
+    },
+    {
+      "id": 16,
+      "nombre": "Hamburguesa",
+      "slug": "hamburguesa",
+      "imagen": null,
+      "icono": null,
+      "padre": "comida"
+    },
+    {
+      "id": 17,
+      "nombre": "Pepesup",
+      "slug": "pepesup",
+      "imagen": null,
+      "icono": null,
+      "padre": "comida"
+    }
+  ],
+  "productos": [
+    {
+      "id": 40,
+      "nombre": "Combo botella + refrescos",
+      "descripcion": "Whisky Black Label y 4 refrescos",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 48000,
+      "imagen": null,
+      "categoria": "promocion",
+      "opciones": []
+    },
+    {
+      "id": 41,
+      "nombre": "2x1 en cócteles",
+      "descripcion": "De 18:00 a 21:00",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 5000,
+      "imagen": null,
+      "categoria": "promocion",
+      "opciones": []
+    },
+    {
+      "id": 42,
+      "nombre": "Pack cachimba + 2 cócteles",
+      "descripcion": "Para compartir en mesa",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 25000,
+      "imagen": null,
+      "categoria": "promocion",
+      "opciones": []
+    },
+    {
+      "id": 5,
+      "nombre": "Mojito",
+      "descripcion": "Ron, menta, lima y soda",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 5000,
+      "imagen": null,
+      "categoria": "cocteles",
+      "opciones": []
+    },
+    {
+      "id": 9,
+      "nombre": "Whisky Black Label",
+      "descripcion": "Botella 70cl",
+      "opcion_titulo": "Presentación",
+      "opcion_base": "Botella",
+      "precio": 45000,
+      "imagen": null,
+      "categoria": "licores",
+      "opciones": [
+        {
+          "id": 6,
+          "nombre": "Chupito",
+          "precio": 2000
+        },
+        {
+          "id": 7,
+          "nombre": "Chato",
+          "precio": 3500
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "nombre": "Cerveza nacional",
+      "descripcion": "Botella 33cl",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 2000,
+      "imagen": null,
+      "categoria": "cerveza",
+      "opciones": []
+    },
+    {
+      "id": 27,
+      "nombre": "Pollo a la plancha",
+      "descripcion": "Con arroz y ensalada",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 7000,
+      "imagen": null,
+      "categoria": "platos",
+      "opciones": []
+    },
+    {
+      "id": 6,
+      "nombre": "Piña colada",
+      "descripcion": "Ron, piña y coco",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 6000,
+      "imagen": null,
+      "categoria": "cocteles",
+      "opciones": []
+    },
+    {
+      "id": 10,
+      "nombre": "Vodka premium",
+      "descripcion": "Botella 70cl",
+      "opcion_titulo": "Presentación",
+      "opcion_base": "Botella",
+      "precio": 40000,
+      "imagen": null,
+      "categoria": "licores",
+      "opciones": [
+        {
+          "id": 8,
+          "nombre": "Chupito",
+          "precio": 1500
+        },
+        {
+          "id": 9,
+          "nombre": "Chato",
+          "precio": 3000
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "nombre": "Cerveza importada",
+      "descripcion": "Botella 33cl",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 3000,
+      "imagen": null,
+      "categoria": "cerveza",
+      "opciones": []
+    },
+    {
+      "id": 28,
+      "nombre": "Pescado frito",
+      "descripcion": "Con plátano y salsa",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 8500,
+      "imagen": null,
+      "categoria": "platos",
+      "opciones": []
+    },
+    {
+      "id": 7,
+      "nombre": "Margarita",
+      "descripcion": "Tequila, lima y sal",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 6000,
+      "imagen": null,
+      "categoria": "cocteles",
+      "opciones": []
+    },
+    {
+      "id": 11,
+      "nombre": "Ron añejo",
+      "descripcion": "Botella 70cl",
+      "opcion_titulo": "Presentación",
+      "opcion_base": "Botella",
+      "precio": 38000,
+      "imagen": null,
+      "categoria": "licores",
+      "opciones": [
+        {
+          "id": 10,
+          "nombre": "Chupito",
+          "precio": 1500
+        },
+        {
+          "id": 11,
+          "nombre": "Chato",
+          "precio": 2800
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "nombre": "Cerveza sin alcohol",
+      "descripcion": "Botella 33cl",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 2000,
+      "imagen": null,
+      "categoria": "cerveza",
+      "opciones": []
+    },
+    {
+      "id": 29,
+      "nombre": "Brochetas mixtas",
+      "descripcion": null,
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 9000,
+      "imagen": null,
+      "categoria": "platos",
+      "opciones": []
+    },
+    {
+      "id": 8,
+      "nombre": "Caipirinha",
+      "descripcion": "Cachaça, lima y azúcar",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 5500,
+      "imagen": null,
+      "categoria": "cocteles",
+      "opciones": []
+    },
+    {
+      "id": 12,
+      "nombre": "Gin London Dry",
+      "descripcion": "Botella 70cl",
+      "opcion_titulo": "Presentación",
+      "opcion_base": "Botella",
+      "precio": 42000,
+      "imagen": null,
+      "categoria": "licores",
+      "opciones": [
+        {
+          "id": 12,
+          "nombre": "Chupito",
+          "precio": 1800
+        },
+        {
+          "id": 13,
+          "nombre": "Chato",
+          "precio": 3200
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "nombre": "Moët & Chandon",
+      "descripcion": "Botella 75cl",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 85000,
+      "imagen": null,
+      "categoria": "champagne",
+      "opciones": []
+    },
+    {
+      "id": 22,
+      "nombre": "Refresco",
+      "descripcion": "Cola, naranja o limón",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 1500,
+      "imagen": null,
+      "categoria": "refrescos",
+      "opciones": []
+    },
+    {
+      "id": 30,
+      "nombre": "Pizza margarita",
+      "descripcion": null,
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 8000,
+      "imagen": null,
+      "categoria": "pizza",
+      "opciones": []
+    },
+    {
+      "id": 14,
+      "nombre": "Veuve Clicquot",
+      "descripcion": "Botella 75cl",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 95000,
+      "imagen": null,
+      "categoria": "champagne",
+      "opciones": []
+    },
+    {
+      "id": 23,
+      "nombre": "Jugo natural",
+      "descripcion": "Piña, mango o maracuyá",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 2500,
+      "imagen": null,
+      "categoria": "refrescos",
+      "opciones": []
+    },
+    {
+      "id": 31,
+      "nombre": "Pizza cuatro quesos",
+      "descripcion": null,
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 10000,
+      "imagen": null,
+      "categoria": "pizza",
+      "opciones": []
+    },
+    {
+      "id": 15,
+      "nombre": "Champagne rosado",
+      "descripcion": "Botella 75cl",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 90000,
+      "imagen": null,
+      "categoria": "champagne",
+      "opciones": []
+    },
+    {
+      "id": 16,
+      "nombre": "Vino tinto reserva",
+      "descripcion": "Botella 75cl",
+      "opcion_titulo": "Presentación",
+      "opcion_base": "Botella",
+      "precio": 25000,
+      "imagen": null,
+      "categoria": "vinos",
+      "opciones": [
+        {
+          "id": 14,
+          "nombre": "Vaso",
+          "precio": 4000
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "nombre": "Agua mineral",
+      "descripcion": "Botella 50cl",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 1000,
+      "imagen": null,
+      "categoria": "bebidas",
+      "opciones": []
+    },
+    {
+      "id": 32,
+      "nombre": "Desayuno completo",
+      "descripcion": "Café, tostadas y huevos",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 5000,
+      "imagen": null,
+      "categoria": "desayuno",
+      "opciones": []
+    },
+    {
+      "id": 17,
+      "nombre": "Vino blanco",
+      "descripcion": "Botella 75cl",
+      "opcion_titulo": "Presentación",
+      "opcion_base": "Botella",
+      "precio": 22000,
+      "imagen": null,
+      "categoria": "vinos",
+      "opciones": [
+        {
+          "id": 15,
+          "nombre": "Vaso",
+          "precio": 3500
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "nombre": "Agua con gas",
+      "descripcion": "Botella 50cl",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 1500,
+      "imagen": null,
+      "categoria": "bebidas",
+      "opciones": []
+    },
+    {
+      "id": 33,
+      "nombre": "Tortilla con pan",
+      "descripcion": null,
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 3500,
+      "imagen": null,
+      "categoria": "desayuno",
+      "opciones": []
+    },
+    {
+      "id": 18,
+      "nombre": "Vino rosado",
+      "descripcion": "Botella 75cl",
+      "opcion_titulo": "Presentación",
+      "opcion_base": "Botella",
+      "precio": 23000,
+      "imagen": null,
+      "categoria": "vinos",
+      "opciones": [
+        {
+          "id": 16,
+          "nombre": "Vaso",
+          "precio": 3800
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "nombre": "Cachimba",
+      "descripcion": "Elige tu sabor",
+      "opcion_titulo": "Sabor",
+      "opcion_base": null,
+      "precio": 15000,
+      "imagen": null,
+      "categoria": "cachimbas",
+      "opciones": [
+        {
+          "id": 17,
+          "nombre": "Love 66",
+          "precio": 15000
+        },
+        {
+          "id": 18,
+          "nombre": "Blueberry Mint",
+          "precio": 16000
+        },
+        {
+          "id": 19,
+          "nombre": "Beirut",
+          "precio": 17000
+        },
+        {
+          "id": 20,
+          "nombre": "Doble manzana",
+          "precio": 15000
+        },
+        {
+          "id": 21,
+          "nombre": "Sandía menta",
+          "precio": 16000
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "nombre": "Ensalada mixta",
+      "descripcion": null,
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 3500,
+      "imagen": null,
+      "categoria": "ensalada",
+      "opciones": []
+    },
+    {
+      "id": 35,
+      "nombre": "Ensalada de pollo",
+      "descripcion": null,
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 5000,
+      "imagen": null,
+      "categoria": "ensalada",
+      "opciones": []
+    },
+    {
+      "id": 36,
+      "nombre": "Bocadillo de jamón",
+      "descripcion": null,
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 3000,
+      "imagen": null,
+      "categoria": "bocadillo",
+      "opciones": []
+    },
+    {
+      "id": 37,
+      "nombre": "Bocadillo de pollo",
+      "descripcion": null,
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 3500,
+      "imagen": null,
+      "categoria": "bocadillo",
+      "opciones": []
+    },
+    {
+      "id": 38,
+      "nombre": "Hamburguesa clásica",
+      "descripcion": null,
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 5500,
+      "imagen": null,
+      "categoria": "hamburguesa",
+      "opciones": []
+    },
+    {
+      "id": 39,
+      "nombre": "Hamburguesa doble",
+      "descripcion": null,
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 7500,
+      "imagen": null,
+      "categoria": "hamburguesa",
+      "opciones": []
+    }
+  ]
+}
