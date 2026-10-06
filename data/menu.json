@@ -1608,17 +1608,6 @@
       "categoria": "pepesup",
       "opciones": []
     },
-    {
-      "_comentario": "Este producto es una promoción temporal de precio fijo",
-      "id": 108,
-      "nombre": null,
-      "descripcion": null,
-      "opcion_titulo": null,
-      "opcion_base": null,
-      "precio": 5000,
-      "imagen": null,
-      "categoria": "promocion",
-      "opciones": []
-    }
+
   ]
 }
