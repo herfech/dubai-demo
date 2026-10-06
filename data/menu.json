@@ -1608,16 +1608,6 @@
       "categoria": "pepesup",
       "opciones": []
     },
-    {
-      "id": 108,
-      "nombre": null,
-      "descripcion": null,
-      "opcion_titulo": null,
-      "opcion_base": null,
-      "precio": 5000,
-      "imagen": null,
-      "categoria": "promocion",
-      "opciones": []
-    }
+
   ]
 }
