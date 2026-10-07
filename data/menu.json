@@ -1382,8 +1382,8 @@
       "nombre": "Pídeme un deseo",
       "descripcion": null,
       "opcion_titulo": "Opción",
-      "opcion_base": null,
-      "precio": 15000,
+      "opcion_base": "Botella",
+      "precio": 18000,
       "imagen": null,
       "categoria": "vinos",
       "opciones": [
@@ -1609,15 +1609,99 @@
       "opciones": []
     },
     {
-      "id": 108,
-      "nombre": "2x1",
-      "descripcion": null,
+      "id": 113,
+      "nombre": "Atanasio Ndong",
+      "descripcion": "1 Botella de Carlos III o Martini\r\n1 Cubo de Desperado\r\n1 Cubo de San Miguel Clara\r\n1 Shishas",
       "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 100000,
+      "imagen": null,
+      "categoria": "promocion",
+      "opciones": []
+    },
+    {
+      "id": 114,
+      "nombre": "Bonifacio Ondó",
+      "descripcion": "1 Botella de Freixenet\r\n1 Cubo de Cervezas\r\n1 Vino + Shishas\r\n1 Shishas",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 80000,
+      "imagen": null,
+      "categoria": "promocion",
+      "opciones": []
+    },
+    {
+      "id": 115,
+      "nombre": "Edmundo Bossio",
+      "descripcion": "2 Vinos\r\n1 Cubo de Cervezas\r\n1 Shishas",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 50000,
+      "imagen": null,
+      "categoria": "promocion",
+      "opciones": []
+    },
+    {
+      "id": 116,
+      "nombre": "Cócteles 2x1",
+      "descripcion": null,
+      "opcion_titulo": "Opción",
       "opcion_base": null,
       "precio": 5000,
       "imagen": null,
       "categoria": "promocion",
-      "opciones": []
+      "opciones": [
+        {
+          "id": 71,
+          "nombre": "Daiquiri de Fresa",
+          "precio": 5000
+        },
+        {
+          "id": 72,
+          "nombre": "Mojito",
+          "precio": 5000
+        },
+        {
+          "id": 73,
+          "nombre": "Piña Colada",
+          "precio": 6000
+        },
+        {
+          "id": 74,
+          "nombre": "Sex on the Beach",
+          "precio": 6000
+        },
+        {
+          "id": 75,
+          "nombre": "Margarita",
+          "precio": 6000
+        },
+        {
+          "id": 76,
+          "nombre": "Tequila Sunrise",
+          "precio": 5000
+        },
+        {
+          "id": 77,
+          "nombre": "Gin Tonic",
+          "precio": 5000
+        },
+        {
+          "id": 78,
+          "nombre": "San Francisco",
+          "precio": 5000
+        },
+        {
+          "id": 79,
+          "nombre": "Caipirinha",
+          "precio": 5000
+        },
+        {
+          "id": 80,
+          "nombre": "Long Island",
+          "precio": 5000
+        }
+      ]
     }
   ]
 }
