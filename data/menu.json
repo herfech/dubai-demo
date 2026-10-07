@@ -141,9 +141,17 @@
       "id": 18,
       "nombre": "Promoción",
       "slug": "promocion",
-      "imagen": null,
+      "imagen": "public/uploads/2450f2b126deb359.webp",
       "icono": "regalo",
       "padre": null
+    },
+    {
+      "id": 19,
+      "nombre": "Cubo de Cervezas",
+      "slug": "cubo-de-cervezas",
+      "imagen": null,
+      "icono": null,
+      "padre": "bebidas"
     }
   ],
   "productos": [
@@ -1609,9 +1617,9 @@
       "opciones": []
     },
     {
-      "id": 113,
+      "id": 109,
       "nombre": "Atanasio Ndong",
-      "descripcion": "1 Botella de Carlos III o Martini\r\n1 Cubo de Desperado\r\n1 Cubo de San Miguel Clara\r\n1 Shishas",
+      "descripcion": "1 Botella de Carlos III o Martini\r\n1 Cubo de Desperado\r\n1 Cubo de San Miguel Clara\r\n2 Shishas",
       "opcion_titulo": null,
       "opcion_base": null,
       "precio": 100000,
@@ -1620,9 +1628,9 @@
       "opciones": []
     },
     {
-      "id": 114,
+      "id": 110,
       "nombre": "Bonifacio Ondó",
-      "descripcion": "1 Botella de Freixenet\r\n1 Cubo de Cervezas\r\n1 Vino + Shishas\r\n1 Shishas",
+      "descripcion": "1 Botella de Freixenet\r\n1 Cubo de Cervezas\r\n1 Vino + 1 Shisha",
       "opcion_titulo": null,
       "opcion_base": null,
       "precio": 80000,
@@ -1631,9 +1639,9 @@
       "opciones": []
     },
     {
-      "id": 115,
+      "id": 111,
       "nombre": "Edmundo Bossio",
-      "descripcion": "2 Vinos\r\n1 Cubo de Cervezas\r\n1 Shishas",
+      "descripcion": "2 Vinos\r\n1 Cubo de Cervezas\r\n1 Shisha",
       "opcion_titulo": null,
       "opcion_base": null,
       "precio": 50000,
@@ -1642,7 +1650,7 @@
       "opciones": []
     },
     {
-      "id": 116,
+      "id": 112,
       "nombre": "Cócteles 2x1",
       "descripcion": null,
       "opcion_titulo": "Opción",
@@ -1652,56 +1660,89 @@
       "categoria": "promocion",
       "opciones": [
         {
-          "id": 71,
+          "id": 63,
           "nombre": "Daiquiri de Fresa",
           "precio": 5000
         },
         {
-          "id": 72,
+          "id": 64,
           "nombre": "Mojito",
           "precio": 5000
         },
         {
-          "id": 73,
+          "id": 65,
           "nombre": "Piña Colada",
           "precio": 6000
         },
         {
-          "id": 74,
+          "id": 66,
           "nombre": "Sex on the Beach",
           "precio": 6000
         },
         {
-          "id": 75,
+          "id": 67,
           "nombre": "Margarita",
           "precio": 6000
         },
         {
-          "id": 76,
+          "id": 68,
           "nombre": "Tequila Sunrise",
           "precio": 5000
         },
         {
-          "id": 77,
+          "id": 69,
           "nombre": "Gin Tonic",
           "precio": 5000
         },
         {
-          "id": 78,
+          "id": 70,
           "nombre": "San Francisco",
           "precio": 5000
         },
         {
-          "id": 79,
+          "id": 71,
           "nombre": "Caipirinha",
           "precio": 5000
         },
         {
-          "id": 80,
+          "id": 72,
           "nombre": "Long Island",
           "precio": 5000
         }
       ]
+    },
+    {
+      "id": 114,
+      "nombre": "Cubo x7",
+      "descripcion": "San Miguel Clara,\r\nSan Miguel Especial,\r\nSan Miguel Fresca\r\nHeineken Lata,\r\nStout,\r\nTitán,\r\nSmirnoff,\r\nCorona,\r\nAmbar",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 15000,
+      "imagen": null,
+      "categoria": "cubo-de-cervezas",
+      "opciones": []
+    },
+    {
+      "id": 115,
+      "nombre": "Cubo x10",
+      "descripcion": "Heineken Botella,\r\nDesperado,\r\nGuines de Guinea,\r\nGuines de Camerún",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 20000,
+      "imagen": null,
+      "categoria": "cubo-de-cervezas",
+      "opciones": []
+    },
+    {
+      "id": 116,
+      "nombre": "Cubo x7",
+      "descripcion": "San Miguel Clara,\r\nSan Miguel Especial",
+      "opcion_titulo": null,
+      "opcion_base": null,
+      "precio": 10000,
+      "imagen": null,
+      "categoria": "cubo-de-cervezas",
+      "opciones": []
     }
   ]
 }

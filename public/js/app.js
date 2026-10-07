@@ -1,7 +1,7 @@
 'use strict';
 (() => {
   const $ = (id) => document.getElementById(id);
-  const WA = document.body.dataset.wa, WA_RES = document.body.dataset.waReservas || document.body.dataset.wa, LOCAL = document.body.dataset.local, CLAVE = 'dubai_carrito_v3';
+  const WA = document.body.dataset.wa, WA_RES = document.body.dataset.waReservas || document.body.dataset.wa, LOCAL = document.body.dataset.local, CLAVE = 'dubai_carrito_v3', PEDIDOS = document.body.dataset.pedidos || '';
   const fmt = (n) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' XAF';   // siempre con punto de millar (también 2.000)
   // Iconos de las tarjetas. El administrador puede elegir uno por categoría; si no, se deduce del nombre; si no, rombo.
   const ICONOS = {
@@ -22,15 +22,16 @@
   let productos = [], categorias = [], carrito = {}, sel = null;
   const etiquetaMesa = (m) => /^\d/.test(m) ? 'Mesa ' + m : m;
   // La mesa llega por el QR de cada mesa (?mesa=5). Solo se acepta un nombre corto y limpio; dura lo que dure la visita.
-  let mesa = null;
+  let mesa = null, mesaK = '';
   try {
     const bueno = (v) => !!v && /^[\p{L}\p{N} _.-]{1,20}$/u.test(v.trim());
-    const q = new URLSearchParams(location.search).get('mesa'), prev = JSON.parse(sessionStorage.getItem('dubai_mesa') || 'null');
-    if (bueno(q)) {
-      mesa = q.trim();
+    const firmaOk = (k) => !PEDIDOS || /^[a-f0-9]{12}$/.test(k || '');   // con registro de pedidos, la mesa solo vale si el QR lleva su firma
+    const sp = new URLSearchParams(location.search), q = sp.get('mesa'), qk = sp.get('k'), prev = JSON.parse(sessionStorage.getItem('dubai_mesa') || 'null');
+    if (bueno(q) && firmaOk(qk)) {
+      mesa = q.trim(); mesaK = qk || '';
       if (!prev || prev.m !== mesa) { try { localStorage.removeItem(CLAVE); } catch (_) {} }   // otra mesa: pedido en blanco
-      sessionStorage.setItem('dubai_mesa', JSON.stringify({ m: mesa, t: Date.now() }));
-    } else if (prev && Date.now() - prev.t < 6 * 3600 * 1000 && bueno(prev.m)) mesa = prev.m;
+      sessionStorage.setItem('dubai_mesa', JSON.stringify({ m: mesa, k: mesaK, t: Date.now() }));
+    } else if (prev && Date.now() - prev.t < 6 * 3600 * 1000 && bueno(prev.m) && firmaOk(prev.k)) { mesa = prev.m; mesaK = prev.k || ''; }
   } catch (_) {}
   try { const g = JSON.parse(localStorage.getItem(CLAVE)); if (g && Date.now() - g.t < 12 * 3600 * 1000) carrito = g.c || {}; } catch (_) {}
   const guardar = () => { try { localStorage.setItem(CLAVE, JSON.stringify({ t: Date.now(), c: carrito })); } catch (_) {} };
@@ -163,7 +164,7 @@
   }
   function pintarBarra() {
     const n = lineas().reduce((s, l) => s + l.q, 0);
-    $('abrirCarrito').hidden = n === 0 || !$('panel').hidden || !$('selector').hidden;
+    $('abrirCarrito').hidden = n === 0 || !$('panel').hidden || !$('selector').hidden || !$('confirmacion').hidden;
     $('barraCantidad').textContent = n + (n === 1 ? ' producto' : ' productos');
     $('barraTotal').textContent = fmt(total());
   }
@@ -199,9 +200,9 @@
 
   // ---------- Abrir / cerrar ventanas ----------
   const abrir = () => { $('panel').hidden = $('velo').hidden = false; pintarPanel(); pintarBarra(); actualizarForm(); };
-  function cerrarTodo() { sel = null; $('panel').hidden = $('selector').hidden = $('velo').hidden = true; pintarBarra(); }
+  function cerrarTodo() { sel = null; $('panel').hidden = $('selector').hidden = $('confirmacion').hidden = $('velo').hidden = true; pintarBarra(); }
   $('abrirCarrito').onclick = abrir;
-  ['cerrarCarrito', 'cerrarSel', 'selListo', 'velo'].forEach(id => { $(id).onclick = cerrarTodo; });
+  ['cerrarCarrito', 'cerrarSel', 'selListo', 'velo', 'cerrarConf', 'confCerrar'].forEach(id => { $(id).onclick = cerrarTodo; });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarTodo(); });
   $('vaciar').onclick = () => { carrito = {}; guardar(); pintarVista(); cerrarTodo(); };
   // Con QR de mesa: solo se ve la mesa y las notas. Con el QR general: tipo de pedido y, si es pedido, dónde está el cliente.
@@ -215,19 +216,61 @@
   $('tipo').onchange = actualizarForm; actualizarForm();
 
   // ---------- Envío por WhatsApp ----------
-  $('enviar').onclick = () => {
-    const err = $('error'), tipo = mesa ? 'pedido' : $('tipo').value, ubic = $('ubicacion').value.trim();
+  const urlWa = (numero, texto) => `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+  const lineaWa = (l) => `${l.cantidad} x ${l.nombre}${l.opcion ? ` (${l.titulo || 'Opción'}: ${l.opcion})` : ''} - ${fmt(l.subtotal)}`;
+  // El texto del pedido registrado se arma con lo que devolvió el servidor (nombres y precios de la base de datos), no con lo del móvil
+  function textoPedido(r) {
+    const t = [`*PEDIDO #${r.numero} - ${LOCAL}*`, r.mesa ? `Mesa: ${r.mesa}` : `Ubicación: ${r.ubicacion}`, '', ...r.lineas.map(lineaWa), '', `*Total: ${fmt(r.total)}*`];
+    if (r.notas) t.push('', `Notas: ${r.notas}`);
+    return t.join('\n');
+  }
+  // Envío directo por WhatsApp (reservas, o pedidos cuando no se pudo registrar)
+  function enviarDirecto(tipo, ubic, marca) {
+    const t = [`*${tipo === 'reserva' ? 'RESERVA' : 'PEDIDO'}${marca ? ' (' + marca + ')' : ''} - ${LOCAL}*`];
+    if (tipo === 'reserva') t.push(`Fecha y hora: ${$('fecha').value.replace('T', ' ')}`, `Personas: ${$('personas').value}`);
+    else t.push(mesa ? `Mesa: ${mesa}` : `Ubicación: ${ubic}`);
+    t.push('', ...lineas().map(({ p, o, q }) => `${q} x ${p.nombre}${o ? ` (${p.opcion_titulo}: ${o.nombre})` : ''} - ${fmt((o ? o.precio : p.precio) * q)}`), '', `*Total: ${fmt(total())}*`);
+    if ($('notas').value.trim()) t.push('', `Notas: ${$('notas').value.trim()}`);
+    window.open(urlWa(tipo === 'reserva' ? WA_RES : WA, t.join('\n')), '_blank', 'noopener');
+  }
+  let ultimoWa = '';
+  function mostrarConfirmacion(r) {
+    ultimoWa = urlWa(WA, textoPedido(r));
+    $('confNum').textContent = '#' + r.numero; $('confTotal').textContent = fmt(r.total);
+    const ul = $('confLineas'); ul.replaceChildren();
+    r.lineas.forEach(l => { const li = el('li'); li.append(el('div', 'n', `${l.cantidad} × ${l.nombre}${l.opcion ? ' (' + l.opcion + ')' : ''}`), el('div', null, fmt(l.subtotal))); ul.append(li); });
+    $('confAviso').textContent = 'Tu pedido está anotado con este número. Pulsa el botón para avisar al personal por WhatsApp.';
+    $('confirmacion').hidden = $('velo').hidden = false; pintarBarra();
+  }
+  $('confWa').onclick = () => { if (ultimoWa) window.open(ultimoWa, '_blank', 'noopener'); };
+
+  $('enviar').onclick = async () => {
+    const err = $('error'), btn = $('enviar'), tipo = mesa ? 'pedido' : $('tipo').value, ubic = $('ubicacion').value.trim();
     const falla = (m) => { err.textContent = m; err.hidden = false; };
     err.hidden = true;
     if (!lineas().length) return falla('Añade al menos un producto.');
     if (tipo === 'pedido' && !mesa && !ubic) return falla('Indica tu mesa o dónde estás (mesa 4, barra, de pie…).');
     if (tipo === 'reserva' && !$('fecha').value) return falla('Indica la fecha y hora de la reserva.');
-    const t = [`*${tipo === 'reserva' ? 'RESERVA' : 'PEDIDO'} - ${LOCAL}*`];
-    if (tipo === 'reserva') t.push(`Fecha y hora: ${$('fecha').value.replace('T', ' ')}`, `Personas: ${$('personas').value}`);
-    else t.push(mesa ? `Mesa: ${mesa}` : `Ubicación: ${ubic}`);
-    t.push('', ...lineas().map(({ p, o, q }) => `${q} x ${p.nombre}${o ? ` (${p.opcion_titulo}: ${o.nombre})` : ''} - ${fmt((o ? o.precio : p.precio) * q)}`), '', `*Total: ${fmt(total())}*`);
-    if ($('notas').value.trim()) t.push('', `Notas: ${$('notas').value.trim()}`);
-    window.open(`https://wa.me/${tipo === 'reserva' ? WA_RES : WA}?text=${encodeURIComponent(t.join('\n'))}`, '_blank', 'noopener');
+    if (tipo === 'reserva' || !PEDIDOS) return enviarDirecto(tipo, ubic, '');
+    // Pedido: primero se REGISTRA en el servidor (así queda constancia aunque se borre el mensaje de WhatsApp) y después se avisa por WhatsApp
+    btn.disabled = true; btn.textContent = 'Registrando el pedido…';
+    let estado = 0, j = {};
+    try {
+      const r = await fetch(PEDIDOS, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ items: lineas().map(l => ({ id: l.p.id, o: l.o ? l.o.id : null, c: l.q })), mesa, k: mesaK, ubicacion: ubic, notas: $('notas').value.trim() }) });
+      estado = r.status; j = await r.json();
+    } catch (_) { j = {}; }
+    btn.disabled = false; btn.textContent = 'Enviar por WhatsApp';
+    if (estado === 200 && j.ok) {
+      carrito = {}; guardar(); $('notas').value = ''; pintarVista(); cerrarTodo(); mostrarConfirmacion(j);
+      const w = window.open(ultimoWa, '_blank'); if (w) w.opener = null;   // si el navegador lo bloquea, queda el botón de la confirmación
+      return;
+    }
+    if (j.codigo === 'mesa_invalida') {
+      mesa = null; mesaK = ''; try { sessionStorage.removeItem('dubai_mesa'); } catch (_) {} actualizarForm();
+      return falla('No hemos podido verificar el código de tu mesa. Indica dónde estás (mesa, barra, de pie…) y vuelve a enviar.');
+    }
+    if (estado === 422) return falla(j.error || 'Revisa el pedido.');   // p. ej. un producto que ya no está disponible
+    enviarDirecto(tipo, ubic, 'SIN REGISTRO');                            // sin conexión o fallo del servidor: se envía igualmente, marcado para que el personal lo anote
   };
 
   // Logo: si existe public/img/logo.png sustituye al nombre en texto

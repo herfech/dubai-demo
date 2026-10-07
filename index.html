@@ -3,28 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Carta · Dubai · Malabo</title>
-  <meta name="description" content="Carta de Dubai en Malabo: cócteles, botellas, bebidas y cachimbas. Pide o reserva por WhatsApp.">
+  <title>Carta · Dubái · Malabo</title>
+  <meta name="description" content="Carta de Dubái en Malabo: cócteles, botellas, bebidas y cachimbas. Pide o reserva por WhatsApp.">
   <meta name="theme-color" content="#0A0807">
   <meta name="robots" content="noindex, nofollow">
   <!-- Para que el enlace se vea con foto al compartirlo por WhatsApp, quita los comentarios y cambia la dirección por la tuya:
-  <meta property="og:type" content="website"><meta property="og:title" content="Carta · Dubai">
+  <meta property="og:type" content="website"><meta property="og:title" content="Carta · Dubái">
   <meta property="og:image" content="https://TU-USUARIO.github.io/TU-REPOSITORIO/public/img/compartir.jpg">
   <meta property="og:url" content="https://TU-USUARIO.github.io/TU-REPOSITORIO/"><meta name="twitter:card" content="summary_large_image"> -->
-  
-  <link rel="icon" href="public/img/favicon.png">  <link rel="stylesheet" href="public/css/main.css?v=v8b7d2f9d0">
+  <link rel="preload" href="public/fonts/cormorant-garamond-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="public/img/favicon.png">
+  <link rel="stylesheet" href="public/css/main.css?v=7c94aa821">
 </head>
-<body data-api="data/menu.json" data-ajustes="data/site.json" data-v="c90ee350">
+<!-- Versión estática: sin data-pedidos, así los pedidos van directos por WhatsApp (no hay servidor que los registre) -->
+<body data-api="data/menu.json" data-ajustes="data/site.json" data-v="b9090ca3">
   <noscript><p style="padding:2rem;text-align:center">Esta carta necesita JavaScript activado para mostrarse.</p></noscript>
-  
+
   <div id="fondoCat" class="fondo-cat" aria-hidden="true" hidden><div class="capa"></div></div>
 
   <section id="inicio" class="hero">
     <div class="hero-in">
-      <div id="logo" class="logo"><span class="marca">Dubai</span></div>
+      <div id="logo" class="logo"><span class="marca">Dubái</span></div>
       <p class="kicker">Malabo · Gastronomía · Terraza</p>
       <p class="mesa-chip" hidden></p>
-      <h1>Tu mesa, tu noche, a tu ritmo.</h1>
+      <h1>ESPECIAL DÍA DE LA INDEPENDENCIA</h1>
       <p class="sub">Elige lo que te apetece y envía el pedido directamente al equipo por WhatsApp.</p>
       <a class="btn-oro" href="#categorias">Ver la carta</a>
     </div>
@@ -46,8 +48,8 @@
   </section>
 
   <footer class="pie">
-    <p>Dubai · Menú digital · Pedidos y reservas por WhatsApp</p>
-          </footer>
+    <p>Dubái · Menú digital · Pedidos y reservas por WhatsApp</p>
+  </footer>
 
   <button class="barra-carrito" id="abrirCarrito" hidden>
     <span id="barraCantidad"></span><span>Ver pedido</span><strong id="barraTotal"></strong>
@@ -77,6 +79,15 @@
     <p class="aviso" id="selProducto"></p>
     <ul class="lineas" id="selLista"></ul>
     <button class="enviar" id="selListo">Listo</button>
+  </aside>
+  <aside class="panel" id="confirmacion" role="dialog" aria-modal="true" aria-labelledby="confTitulo" hidden>
+    <div class="panel-cab"><h2 id="confTitulo">Pedido registrado</h2><button class="cerrar" id="cerrarConf" aria-label="Cerrar">✕</button></div>
+    <p class="conf-num" id="confNum"></p>
+    <p class="mesa-aviso" id="confAviso"></p>
+    <ul class="lineas" id="confLineas"></ul>
+    <p class="total">Total <strong id="confTotal"></strong></p>
+    <button class="enviar" id="confWa">Enviar por WhatsApp</button>
+    <button class="vaciar" id="confCerrar">Cerrar</button>
   </aside>
   <script src="public/js/demo.js?v=7b2e28d3"></script>
 </body>

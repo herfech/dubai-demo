@@ -2,7 +2,11 @@
 
 Esta carpeta es una web **100 % estática**: HTML, CSS, JavaScript y archivos JSON. No necesita PHP ni base de datos,
 así que funciona en **GitHub Pages**, Netlify, Cloudflare Pages o cualquier alojamiento de archivos.
-Es solo la parte visual: **no incluye el panel de administración**. El botón de pedir abre WhatsApp con un número de relleno.
+Es solo la parte visual: **no incluye el panel de administración** ni el registro de pedidos.
+
+**Lleva la carta real** (productos, precios, categorías y ajustes copiados del panel el 8/10/2026). Los pedidos se envían por
+WhatsApp al **número real del local**: si la compartes para que alguien la revise, avísale de que no envíe pedidos de prueba.
+Si cambias precios o productos en el panel, esta copia **no se actualiza sola**: hay que volver a exportar `data/menu.json`.
 
 ## Publicarla en GitHub Pages
 
@@ -33,7 +37,7 @@ el cambio, la web se actualiza sola (GitHub Pages tarda un par de minutos; si no
 
 **`data/menu.json`** — categorías y productos
 
-- `categorias`: `id`, `nombre`, `slug` (sin espacios ni acentos), `imagen` (`null`), `icono` y `padre`.
+- `categorias`: `id`, `nombre`, `slug` (sin espacios ni acentos), `imagen` (`null` o la ruta de una foto, p. ej. `public/uploads/foto.webp`), `icono` y `padre`.
   `padre` es el `slug` de la categoría principal si es una subcategoría, o `null`. Solo hay un nivel de subcategorías.
   `icono` puede ser `coctel`, `botella`, `vaso`, `cachimba`, `comida`, `promocion`, `estrella`, `regalo`, `rombo` o `null` (automático).
 - `productos`: `id`, `nombre`, `descripcion`, `precio` (número entero en XAF), `categoria` (el `slug` donde va), `imagen` (`null`)
@@ -62,5 +66,6 @@ Luego entra en `http://localhost:8000/`. (En Windows, `py -m http.server 8000`.)
     public/js/          app.js (la carta) y demo.js (lee data/site.json y la arranca)
     public/fonts/       tipografías
     public/img/         logo, icono y la imagen para compartir
+    public/uploads/     fotos de categorías y productos (las mismas que en el panel)
 
 Para que el enlace se vea con foto al compartirlo por WhatsApp, abre `index.html` y quita los comentarios de las etiquetas `og:` (instrucciones dentro).
